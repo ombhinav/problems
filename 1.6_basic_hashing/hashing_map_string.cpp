@@ -22,6 +22,11 @@ int main(){
         //fetch
         cout<<mpp[c]<<endl;
     }
+    
+    //for iteration of map
+    for(auto it : mpp){
+        cout<<it.first<<" -->  "<<it.second<<endl;
+    }
 
 
     return 0;

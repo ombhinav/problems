@@ -16,7 +16,7 @@ int main(){
         mpp[arr[i]]++;
     }
 
-    //using map for higher order numbers such as >1e8 as arrays won't 
+    //using map for higher order numbers such as >1e7/8 as arrays won't 
     //be able to handle those;
 
     
