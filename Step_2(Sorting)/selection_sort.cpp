@@ -28,3 +28,5 @@ int main(){
     }
     return 0;
 }
+
+//Time complexity --> n^2 (for all cases);
