@@ -67,8 +67,8 @@ void missingNum_xorMethod_oneloop(int arr[],int n){
     for(int i=0;i<n-1;i++){
         xor2 = xor2^arr[i];
         xor1 = xor1^(i+1);
-        xor1 = xor1^n;
     }
+    xor1 = xor1^n;
 
     cout<<(xor1^xor2);
 }
