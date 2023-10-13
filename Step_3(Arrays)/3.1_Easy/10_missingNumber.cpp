@@ -44,6 +44,35 @@ void missingNum_sumMethod(int arr[],int n){
     cout<<sum-sum2;
 }
 
+void missingNum_xorMethod(int arr[], int n ){
+    int xor1;
+    for(int i=1;i<=n;i++){
+        xor1 = xor1^i;
+    }
+
+    int xor2;
+    for(int i=0;i<n-1;i++){
+        xor2 = xor2^arr[i];
+    }
+
+    cout<<(xor1^xor2);
+
+    //this is correct, but here we have 2 for loops, we need to trim it down to one.
+
+    //cout<<xor1^xor2;
+}
+
+void missingNum_xorMethod_oneloop(int arr[],int n){
+    int xor1,xor2;
+    for(int i=0;i<n-1;i++){
+        xor2 = xor2^arr[i];
+        xor1 = xor1^(i+1);
+        xor1 = xor1^n;
+    }
+
+    cout<<(xor1^xor2);
+}
+
 int main(){
     int arr[]={1,2,3,4,5,6,7,9};
     int n =9;
@@ -51,10 +80,8 @@ int main(){
     //missingNum(arr,n); //brute force
     //missingNUm_hashing(arr,n); //better sol
     //missingNum_sumMethod(arr,n); //optimal 1
-    
+    //missingNum_xorMethod(arr,n); //optimal 2, but having 2 for loops
+    missingNum_xorMethod_oneloop(arr,n); //optimal 2, best method.
 
-    
-
-
-
+    return 0;
 }
