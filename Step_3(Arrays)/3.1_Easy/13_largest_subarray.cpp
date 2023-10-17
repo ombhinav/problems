@@ -28,7 +28,7 @@ void better(int arr[],int n,int k){
         if(sum == k){
             maxlen = max(maxlen, i+1);
         }
-        int rem = sum -k;
+        long long rem = sum -k;
         if(preSumMap.find(rem) != preSumMap.end()){
             int len = i - preSumMap[rem];
             maxlen = max(maxlen,len);
@@ -41,13 +41,39 @@ void better(int arr[],int n,int k){
     cout<<maxlen;
 }
 
+void optimal(int arr[], int n, int k){
+    int left,right =0;
+    long long sum =arr[0];
+    int maxLen =0;
+
+    while(right<n){
+
+        while(left <=right && sum > k){
+            sum = sum - arr[left];
+            left++;
+        }
+        
+        if(sum == k){
+            maxLen = max(maxLen, right - left + 1);
+        }
+
+        right++;
+        if(right < n){
+            sum += arr[right];
+        }
+       
+    }
+    cout << maxLen;
+}
+
 int main(){
 
         int arr[]={2,3,5,1,9};
         int n=5;
         int k = 10;
         brute(arr,n,k);
-        better(arr,n,k);        
+        better(arr,n,k);     
+        optimal(arr,n,k);   
         
 }
 
