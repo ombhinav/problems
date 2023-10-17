@@ -111,6 +111,31 @@ void deleteAtPosition(Node* &head, Node* &tail, int position){
 
 }
 
+bool elementPresent(Node* &head, int data){
+    Node* temp = head;
+    int i =1;
+
+    if(temp -> data == data){
+        cout<<temp ->data <<" true" <<endl;
+        return true;
+    
+    }
+
+    else{
+
+        while(temp -> next != NULL){
+            temp = temp -> next;
+            if(temp -> data == data){
+                cout<<temp ->data <<" true" <<endl;
+                return true;
+            }
+        }
+    }
+
+    cout<<temp -> data<<" false"<<endl;
+    return false;
+}
+
 int main(){
 
     Node* node1 = new Node(10);
@@ -132,6 +157,11 @@ int main(){
     deleteAtPosition(head,tail,5);
     cout<<tail -> data<<endl;
     print(head);
+
+    bool a = elementPresent(head,14);
+
+    cout<<a<<endl;
+
     
     return 0; 
 }
