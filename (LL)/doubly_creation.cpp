@@ -16,6 +16,15 @@ class Node{
         this -> prev  = NULL;
     }
 
+    ~Node(){
+        int val = this -> data;
+        if(next != NULL){
+            delete next;
+            next = NULL;
+        }
+
+    }
+
 
 };
 
@@ -79,6 +88,48 @@ void insertAtMiddle(Node* &head, Node* &tail, int position, int d){
 
 }
 
+void deleteNode(Node* &head, int position){
+
+    int length = getLength(head);
+    cout<<length<<endl;
+
+    if(position == 1){
+        Node* temp = head;
+        temp -> next -> prev = NULL;
+        head = temp -> next;
+        temp -> next = NULL;
+        delete temp;    
+    }
+
+    else{
+        Node* temp = head;
+        // Node* curr = head;
+        // Node* prev = NULL;
+        int cnt = 1;
+        while(cnt<position){
+            temp = temp -> next;
+            cnt++;
+            
+        }
+        cout<<temp -> data<<endl;
+
+
+        // curr -> prev = NULL;
+        // prev -> next = curr -> next;
+        // curr -> next = NULL;
+        // delete curr;
+
+        temp -> prev -> next = temp -> next;
+        temp -> next -> prev = temp -> prev;
+        temp -> prev = NULL;
+        temp -> next = NULL;
+        delete temp;
+
+    }
+}
+
+
+
 int main(){
     
     Node* node1 = new Node(10);
@@ -104,6 +155,10 @@ int main(){
 
     insertAtMiddle(head, tail, 1, 21);
     print(head);
+
+    deleteNode(head,7);
+    print(head);
+    
     
     return 0;
 }
