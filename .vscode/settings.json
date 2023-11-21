@@ -3,6 +3,7 @@
         "iostream": "cpp",
         "stack": "cpp",
         "map": "cpp",
-        "new": "cpp"
+        "new": "cpp",
+        "ostream": "cpp"
     }
 }
